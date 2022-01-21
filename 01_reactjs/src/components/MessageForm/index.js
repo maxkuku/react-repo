@@ -35,7 +35,7 @@ export const MessageForm = ({handleSubmit}) => {
 
 
     const onChangeMessage = useCallback((event) => {
-        console.log(event.target.value);
+        //console.log(event.target.value);
         setFormState((formState) => {
             return {
                 ...formState,
@@ -50,7 +50,7 @@ export const MessageForm = ({handleSubmit}) => {
 
 
     const onChangeAuthor = useCallback((event) => {
-        console.log(event.target.value);
+        //console.log(event.target.value);
         setFormState((formState) => {
             return {
                 ...formState,

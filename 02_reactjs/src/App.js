@@ -1,138 +1,91 @@
-import './App.css';
-import { LoginForm } from './examples/hooks';
-import { useState, useMemo, useEffect } from 'react';
-import { useCounter } from './hooks/useCounter';
+import { createContext, useState, useMemo, useContext } from 'react';
+import './App.css'
+import { StylesExample } from './lesson3/StylesExample';
+import { RefExample } from './lesson3/RefExample';
+import { Button, createTheme, ThemeProvider, useTheme, IconButton} from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
+
+// темы
+// bareynol.github.io/mui-theme-creator
+
+const ColorModeContext = createContext({
+    toggleColorMode: () => {},
+})
 
 
-// <!-- onSubmit в файле examples hooks index.js -->
-function App() {
-
-  // пример счетчика
-  const {count, increment, decrement} = useCounter();
-
-  // передаем данные формы
-  // в корневой компонент App
-  // не работает, пишет useState undefined
-  // чтоб заработало, надо импортировать useState
-  const [users, setUser] = useState([]);
-
-  // для поиска
-  const [search, setSearch] = useState('');
-
-  // useMemo запоминает результат вычислений
-  const filteredUsers = useMemo( () => {
-    console.log('filteredUsers useMemo')
-
-    if(search === ''){
-      return users
-    }
-      return users.filter( (item) => item.login.indexOf( search ) !== -1)
-    }, [search, users] 
-  )
-
-  // 2 аргумента - фц и массив зависимостей
-  // 1 режим работы didMount 
-  // useEffect вызывается 1 раз если пустой
-  // массив зависимостей, каждый раз, если массива нет
-  // и каждый раз при изменении данных, указанных в массиве
-
-  // как правило запросы к серверу
-  
-
-  useEffect(() => {
-    console.log('didMount')
-    // например установить таймер
-    setTimeout(() => {
-      console.log('setTimeout')
-    },1000)
-  }, []);
-
-
-
-
-  // 2 вариант работы как didUpdate
-  // вызываается каждый раз как идет рендер
-  useEffect(() => {
-    console.log('didUpdate')
-  });
-
-
-  // 3 вариант: подписаться на изменение переменной и вызывать фц
-  useEffect(() => {
-    console.log('subscribe: ', search)
-  }, [search]);
-
-
-
-  // можно прибрать за собой после работы, убрать использованные
-  // данные как componentWillUnmount
-  // вызвать функцию очистки
-  useEffect(() => {
-    console.log('did Update')
-    return () => {
-      console.log('clear Did Update')
-    }
-  }, []);
-
-
-  return (
-    
-    <div className="App">
-
-      <div className="forheader">
-        <input value={search} type="search" onChange={ (event) => {
-          setSearch(event.target.value);
-        }} placeholder='Поиск'/>
-      </div>
-
-      <header className="App-header">
-        <h1>
-          Форма логин пароль
-        </h1>
-        </header>  
-
-    
-        <div className='interval'></div>
-        
-
-        <LoginForm handleSubmit={(formState) => {
-
-          // передали в компонент
-          // состояние формы
-          console.log(formState)
-
-          // общий Стэйт между формой и родителем
-          // не работает, чтоб заработало,
-          // надо импортировать useState
-          setUser([...users, formState])
-        }}
-        />
-
-        <div className="listWrap">
-          <ul>
-            {
-              filteredUsers.map( (item) => <li>
-                <div>{item.login}</div>
-                <div>{item.password}</div>
-              </li> )
+const getDesignTokens = (mode) => ({
+    palette: {
+        mode,
+        ...(mode === 'light'
+        ? {
+            primary: {
+                main: '#ff03c2',
+            },
+        }
+        : {
+            primary: {
+                main: '#80ffdb'
             }
-          </ul>
-        </div>
+        })
+    },
+})
 
 
+const ToggleTheme = () => {
+    const theme = useTheme();
 
-        <div className='interval'></div>
+    const colorMode = useContext(ColorModeContext);
 
-
-        <button onClick={decrement}>decrement</button>
-        <span>{count}</span>
-        <button onClick={increment}>increment</button>
-        
-        
-
-
+    return <div>
+        mode: {theme.palette.mode} <br/>
+        <IconButton onClick={colorMode.toggleColorMode}>
+            {theme.palette.mode === 'dark' && <Brightness7Icon/>}
+            {theme.palette.mode === 'light' && <Brightness4Icon/>}
+        </IconButton>
     </div>
-  );
+}
+
+function App() {
+    const [list, setList] = useState([]);
+    const [mode, setMode] = useState('light');
+
+
+    const colorMode = useMemo(() => {
+        return {
+            toggleColorMode: () => {
+                setMode((prevMode) => {
+                    return prevMode === 'light' ? 'dark' : 'light';
+                })
+            }
+        }
+    },[])
+
+
+    const theme = useMemo(() => createTheme(getDesignTokens(mode)),[mode])
+
+
+    return (
+        <ColorModeContext.Provider value={colorMode}>
+            <ThemeProvider theme={theme}>
+                <div className='App'>
+
+                    <ToggleTheme/>
+
+                    <br/><br/>
+
+                    <StylesExample/>
+
+                    <br/><br/><br/><br/>
+
+                    <Button onClick={() => {
+                        setList([...list, <img key={[Date.now()]} src='https://picsum.photos/200/300' alt='Picsum photos'/>])
+                    }}>Add</Button>
+                    <RefExample list={list}/>
+                </div>
+            </ThemeProvider>
+        </ColorModeContext.Provider>
+    )
 }
 
 export default App;

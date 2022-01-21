@@ -1,6 +1,71 @@
 import './App.css';
-import { useState, useMemo, useEffect } from 'react';
+import { createContext, useState, useMemo, useEffect, useContext } from 'react';
 import { MessageForm } from './components';
+import { Button, createTheme, ThemeProvider, useTheme, IconButton} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
+
+
+
+
+
+
+
+const ColorModeContext = createContext({
+  toggleColorMode: () => {},
+})
+
+
+
+
+const getDesignTokens = (mode) => ({
+  palette: {
+      mode,
+      ...(mode === 'light'
+      ? {
+        primary: {
+          main: '#efefef',
+          backgroundColor: '#efefef',
+          contrastText: '#222222',
+      },
+      // никак не получается изменить бэкграунд страницы
+      // тема применяется только к кнопке и больше ни к чему
+      }
+      : {
+        primary: {
+          main: '#343434',
+          backgroundColor: '#343434',
+          contrastText: 'white',
+      }
+      })
+  },
+})
+
+
+
+
+const ToggleTheme = () => {
+
+  const theme = useTheme();
+
+  const colorMode = useContext(ColorModeContext);
+
+  return <div>
+      {/** mode: {theme.palette.mode} <br/> */}
+      <IconButton onClick={colorMode.toggleColorMode}>
+          {theme.palette.mode === 'dark' && <Brightness7Icon/>}
+          {theme.palette.mode === 'light' && <Brightness4Icon/>}
+      </IconButton>
+  </div>
+}
+
+
+
+
+
+
+
 
 function App() {
 
@@ -11,6 +76,29 @@ function App() {
   const [search, setSearch] = useState('');
 
 
+  const [mode, setMode] = useState('light');
+
+
+
+
+  const colorMode = useMemo(() => {
+    return {
+        toggleColorMode: () => {
+            setMode((prevMode) => {
+                return prevMode === 'light' ? 'dark' : 'light';
+            })
+        }
+      }
+  },[])
+
+
+
+  const theme = useMemo(() => createTheme(getDesignTokens(mode)),[mode])
+
+
+
+
+// Search
 
   const filteredMessages = useMemo( () => {
 
@@ -25,7 +113,7 @@ function App() {
   )
 
 
-
+// Answers
 
   useEffect(() => {
 
@@ -71,7 +159,16 @@ function App() {
 
 
   return (
+  <ColorModeContext.Provider value={colorMode}>
+    <ThemeProvider theme={theme}>  
     <div className="App">
+
+
+      <div className="ButtonWrap">
+        <ToggleTheme/>
+      </div>
+
+
       <div className="container">
 
 
@@ -121,6 +218,8 @@ function App() {
 
       </div>
     </div>
+    </ThemeProvider>
+  </ColorModeContext.Provider>  
   );
 }
 
