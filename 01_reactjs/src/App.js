@@ -1,14 +1,22 @@
 import './App.css';
-import {Message} from './components';
+import { Homework } from './homework-3';
 
 function App() {
   return (
     <div className="App">
       <div className="container">
 
-        <Message weight="bold">Текст передается через свойство props.children и оформлен жирным.</Message>
+      <div className="forheader"/>
 
-        <Message>Текст передается через свойство props.children и не оформлен.</Message>
+      <div className='interval'/>
+
+      <header className="App-header">
+        <h1>
+          Сообщения пользователей
+        </h1>
+      </header>
+
+        <Homework/>
 
       </div>
     </div>
