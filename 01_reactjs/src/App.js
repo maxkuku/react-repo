@@ -1,4 +1,5 @@
 import './App.css';
+<<<<<<< HEAD
 import { createContext, useState, useMemo, useEffect, useContext } from 'react';
 import { MessageForm } from './components';
 import { Button, createTheme, ThemeProvider, useTheme, IconButton} from '@mui/material';
@@ -220,6 +221,21 @@ function App() {
     </div>
     </ThemeProvider>
   </ColorModeContext.Provider>  
+=======
+import {Message} from './components';
+
+function App() {
+  return (
+    <div className="App">
+      <div className="container">
+
+        <Message weight="bold">Текст передается через свойство props.children и оформлен жирным.</Message>
+
+        <Message>Текст передается через свойство props.children и не оформлен.</Message>
+
+      </div>
+    </div>
+>>>>>>> ReactJS_01br
   );
 }
 

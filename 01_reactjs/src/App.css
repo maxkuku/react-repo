@@ -12,6 +12,7 @@ body {
   .container {
     padding: 0 10px;
   }
+<<<<<<< HEAD
 }
 .interval{
   margin-top: 40px;
@@ -101,4 +102,6 @@ input{
 }
 .ButtonWrap {
   text-align: right;
+=======
+>>>>>>> ReactJS_01br
 }
