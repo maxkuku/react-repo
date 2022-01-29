@@ -1,8 +1,6 @@
 import React from 'react'
-// eslint-disable-next-line
-import ReactDOM from 'react-dom'
 import './App.css';
-import { Homework } from './homework-4';
+import { Homework } from './homework-5';
 
 function App() {
   return (
