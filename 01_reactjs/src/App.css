@@ -1,18 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   text-align: left;
   margin: 0;
   padding: 0;
 }
+
 .container{
-  max-width: 1250px;
-  margin: auto;
   width: 100%;
+  margin: auto;
 }
+
 @media(max-width: 1025px){
   .container {
     padding: 0 10px;
   }
-<<<<<<< HEAD
 }
 .interval{
   margin-top: 40px;
@@ -81,15 +85,6 @@ body {
     margin: auto 10px;
   }
 }
-.bold{
-  font-weight: bold;
-}
-.em{
-  font-style: italic;
-}
-.alignright{
-  text-align: right;
-}
 .listWrap ul li.answer {
   margin-bottom: 20px;
   background-color: #eee;
@@ -97,11 +92,7 @@ body {
   margin-top: 20px;
   padding: 0 10px;
 }
+
 input{
   outline:none;
-}
-.ButtonWrap {
-  text-align: right;
-=======
->>>>>>> ReactJS_01br
 }
