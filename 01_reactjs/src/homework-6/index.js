@@ -10,12 +10,12 @@ import Toolbar from '@mui/material/Toolbar';
 import { Home } from "./routes/Home";
 import { Chats } from "./routes/Chats";
 import { Profile_route } from "./routes/Profile";
-import { store } from "./store";
+import { store } from "./store/index";
 
 
 export const Homework = () => {
 
-// 'store' is not defined 
+
 
     return (
         <Provider store={store}>
