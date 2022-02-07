@@ -5,6 +5,11 @@ import { RefExample } from './lesson3/RefExample';
 import { Button, createTheme, ThemeProvider, useTheme, IconButton} from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Brightness7Icon from '@mui/icons-material/Brightness7'
+import { MyThemeContext } from './hooks/contextExamole';
+
+
+
+
 
 // темы
 // bareynol.github.io/mui-theme-creator
@@ -46,6 +51,10 @@ const ToggleTheme = () => {
     </div>
 }
 
+
+
+
+
 function App() {
     const [list, setList] = useState([]);
     const [mode, setMode] = useState('light');
@@ -62,29 +71,31 @@ function App() {
     },[])
 
 
-    const theme = useMemo(() => createTheme(getDesignTokens(mode)),[mode])
+    const theme = useMemo(() => createTheme(getDesignTokens(mode)),[mode]);
 
 
     return (
-        <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>
-                <div className='App'>
+        <MyThemeContext.Provider value={{theme: 'dark'}}>
+            <ColorModeContext.Provider value={colorMode}>
+                <ThemeProvider theme={theme}>
+                    <div className='App'>
 
-                    <ToggleTheme/>
+                        <ToggleTheme/>
 
-                    <br/><br/>
+                        <br/><br/>
 
-                    <StylesExample/>
+                        <StylesExample/>
 
-                    <br/><br/><br/><br/>
+                        <br/><br/><br/><br/>
 
-                    <Button onClick={() => {
-                        setList([...list, <img key={[Date.now()]} src='https://picsum.photos/200/300' alt='Picsum photos'/>])
-                    }}>Add</Button>
-                    <RefExample list={list}/>
-                </div>
-            </ThemeProvider>
-        </ColorModeContext.Provider>
+                        <Button onClick={() => {
+                            setList([...list, <img key={[Date.now()]} src='https://picsum.photos/200/300' alt='Picsum photos'/>])
+                        }}>Add</Button>
+                        <RefExample list={list}/>
+                    </div>
+                </ThemeProvider>
+            </ColorModeContext.Provider>
+        </MyThemeContext.Provider>
     )
 }
 

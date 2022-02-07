@@ -1,7 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { ListItem, ListItemText } from '@material-ui/core';
-import styles from './Message.module.css';
 
 export const Message = (props) => {
 
