@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { ADD_TODO, CHANGE_TODO_STATUS, REMOVE_TODO } from '../store/todo/actions'
+import { addTodoAction, removeTodoAction, changeTodoStatus, setFilterByStatusAction } from '../store/todo/actions'
 
 export const ReduxExample = () => {
 
@@ -10,12 +10,12 @@ export const ReduxExample = () => {
 
     const dispatch = useDispatch();
     const list = useSelector((state) => {
-
-        if(statusFilter === undefined){
-            return state.list;
+        
+        if(state.tasks.filter.status === undefined){
+            return state.tasks.list;
         }
 
-        return state.list.filter(({status}) => status === statusFilter)
+        return state.tasks.list.filter(({status}) => status === statusFilter)
     })
 
 
@@ -25,36 +25,44 @@ export const ReduxExample = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        dispatch({
-            type: ADD_TODO,
-            payload: {
-                id: Date.now(),
-                text: value,
-                status: false,
-            }
-        })
+        // dispatch({
+        //     type: ADD_TODO,
+        //     payload: {
+        //         id: Date.now(),
+        //         text: value,
+        //         status: false,
+        //     }
+        // })
+        dispatch(addTodoAction({
+            id: Date.now(),
+            text: value,
+            status: false,
+        }))
     }
 
     const onChangeStatus = (todoId) => (event) => {
-        dispatch({
-            type: CHANGE_TODO_STATUS,
-            payload: {
-                id: todoId,
-                status: event.target.checked,
-            }
-        })
+        // dispatch({
+        //     type: CHANGE_TODO_STATUS,
+        //     payload: {
+        //         id: todoId,
+        //         status: event.target.checked,
+        //     }
+        // })
+        dispatch(changeTodoStatus(todoId, event.target.checked))
     }
 
     const onRemove = (todoId) => () => {
-        dispatch({
-            type: REMOVE_TODO,
-            payload: todoId,
-        })
+        // dispatch({
+        //     type: REMOVE_TODO,
+        //     payload: todoId,
+        // })
+
+        dispatch(removeTodoAction(todoId))
     }
 
 
     const onChangeStatusFilter = (status) => () => {
-        setStatusFilter(status);
+        dispatch(setFilterByStatusAction(status))
     }
 
     return <div>
