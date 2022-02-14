@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import { ChatList } from '../../components/ChatList';
 import { Messages } from '../Messages';
-import {withChats} from "../../hocs/withChats"
+import { withChats } from "../../hocs/withChats"
 
 
 
@@ -29,8 +29,8 @@ export const ChatsRender = ({
   return (
     <div className={classes.wrapper}>
       <div>
-        <ChatList onDelete={onDeleteChat} list={chats} />
-        <Button onclick={onCreateChat}>Create chat</Button>
+        <ChatList onDelete={onDeleteChat} key={chats.id} list={chats} />
+        <Button onClick={onCreateChat}>Create chat</Button>
       </div>
       <div>
         <Switch>

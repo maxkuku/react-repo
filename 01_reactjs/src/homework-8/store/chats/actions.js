@@ -17,3 +17,4 @@ export const removeChat = (chatId) => ({
     type: REMOVE_CHAT,
     payload: chatId,
 })
+

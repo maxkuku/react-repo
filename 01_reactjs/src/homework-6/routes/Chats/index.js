@@ -30,7 +30,7 @@ export const Chats = () => {
     const onCreate = useCallback(() => {
       dispatch(createChat({
         id: nanoid(),
-        name: 'chatName'
+        name: 'chatName' + Date.now()
       }))
     }, []);
 
