@@ -1,5 +1,7 @@
 import { SimpleRedux}  from './lesson-5/examples/SimpleRedux';
 import { HOCs}  from './lesson-5/examples/HOCs';
+
+import { BrowserRouter } from 'react-router-dom'; // v5
 import { ReduxExample } from './lesson-5/examples/ReduxExample';
 import { ContextExample } from './lesson-5/examples/context';
 
@@ -10,7 +12,10 @@ function App() {
             {/* <ContextExample/> */}
             {/* <HOCs/> */}
             {/* <SimpleRedux/> */}
-            <ReduxExample/>
+            <BrowserRouter>
+                <ReduxExample/>
+            </BrowserRouter>
+            
         </div>
     )
 }
