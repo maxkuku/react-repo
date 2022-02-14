@@ -1,12 +1,12 @@
 import React from 'react';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
-import {persiStore, persistReducer} from 'react-persist'
+import {persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { profileReducer } from "./profile/reducer"
 import { messagesReducer } from "./messages/reducer"
 import { chatsReducer } from "./chats/reducer"
-import { animalsReducer } from "./animals"
+//import { animalsReducer } from "./animals"
 
 
 
@@ -17,7 +17,7 @@ const persistConfig = {
 
 
 const rootReducer = combineReducers({
-    animals: animalsReducer,
+    //animals: animalsReducer,
     profile: profileReducer,
     messages: messagesReducer,
     chats: chatsReducer,

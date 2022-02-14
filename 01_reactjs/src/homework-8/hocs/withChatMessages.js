@@ -4,7 +4,9 @@ import {useParams} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux'
 import {hasChatById} from "../store/chats/selectors"
 import {getChatMessageById} from "../store/messages/selectors"
-import {USER_AUTHORS} from "../constatnts/authors"
+import {sendMessageWithThunk} from "../store/messages/actions"
+//import {USER_AUTHOR} from "../constatnts/authors"
+
 
 
 
