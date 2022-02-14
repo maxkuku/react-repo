@@ -21,8 +21,9 @@ const useStyles = makeStyles({
     }
 });
 
+
 export const Chats = () => {
-    const chats = useSelector(getChatList)
+    const chats = useSelector(getChatList())
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -31,7 +32,7 @@ export const Chats = () => {
         id: nanoid(),
         name: 'chatName'
       }))
-    }, [dispatch]);
+    }, []);
 
 
     const onDelete = (chatId) => {
@@ -42,7 +43,7 @@ export const Chats = () => {
 
     useEffect(() => {
       dispatch(setChats(CHATS))
-    },[dispatch]);
+    },[]);
 
 
     return (
