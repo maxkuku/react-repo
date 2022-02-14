@@ -11,11 +11,8 @@ export const ChatList = ( list ) => {
     return (
         <List>
             {list.map((item) => (
-
                 <Chat key={item.id} {...item} />
             ))}
-
-            
         </List>
     )
 }
