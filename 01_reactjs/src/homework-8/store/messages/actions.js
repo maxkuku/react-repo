@@ -1,4 +1,4 @@
-import {BOT_AUTHOR} from "../../constatnts/helpers"
+import {BOT_AUTHOR} from "../../constatnts/authors"
 import {createMessage} from "../../helpers"
 
 
@@ -19,7 +19,7 @@ export const addMessage = (message, chatId) => ({
 })
 
 
-export const removeMessageByChatId = (chatId) => ({
+export const removeMessagesByChatId = (chatId) => ({
     type: REMOVE_MESSAGES_BY_CHAT_ID,
     payload: chatId
 })
