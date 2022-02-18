@@ -1,17 +1,26 @@
 import React from 'react'
-import { List } from '@material-ui/core'
+import { List, ListItem, Link, ListItemText } from '@mui/material'
 import propTypes from 'prop-types'
-import { Chat } from '../Chat'
+// import { Chat } from '../Chat'
+// import { CHATS } from '../../mocks/chats'
+// export const list = CHATS
+
+export const Chat = ({ name, id }) => {
+    return (
+        <ListItem key={id} component={Link} to={`/chats/${id}`}>
+          <ListItemText>{name}</ListItemText>
+        </ListItem>
+    );
+};
 
 
 
-
-export const ChatList = ({ list, onDelete }) => {
+export const ChatList = ( Chat, onDelete ) => {
     return (
         <List>
-            {list.map((item) => (
+            {Chat.map((item) => (
 
-                <Chat onClick={() => onDelete(item.id)} key={item.id} {...item} />
+                <Chat onClick={() => onDelete(item.id)} key={item.id} {...item}>{item.name}</Chat>
             ))}    
         </List>
     )

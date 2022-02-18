@@ -6,7 +6,7 @@ import storage from 'redux-persist/lib/storage'
 import { profileReducer } from "./profile/reducer"
 import { messagesReducer } from "./messages/reducer"
 import { chatsReducer } from "./chats/reducer"
-//import { animalsReducer } from "./animals"
+import { catsReducer } from "../routes/Cats"
 
 
 
@@ -17,7 +17,7 @@ const persistConfig = {
 
 
 const rootReducer = combineReducers({
-    //animals: animalsReducer,
+    cats: catsReducer,
     profile: profileReducer,
     messages: messagesReducer,
     chats: chatsReducer,

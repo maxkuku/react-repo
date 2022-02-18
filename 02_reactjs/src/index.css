@@ -20,3 +20,15 @@ code {
 .App input {
   outline:none;
 }
+
+.App .flex-wrap-wrap{
+  flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.App .btn-toolbar {
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

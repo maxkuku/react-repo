@@ -6,8 +6,10 @@ import {PersistGate} from 'redux-persist/integration/react'
 
 import { Home } from "./routes/Home";
 import { Chats } from "./routes/Chats";
+import { Cats } from "./routes/Cats";
 import { Profile_route } from "./routes/Profile";
-import { store, persistor } from "./store/index";
+
+import { store, persistor } from "./routes/Cats";
 
 
 export const Homework = () => {
@@ -29,9 +31,13 @@ export const Homework = () => {
                   <Button to="/chats" component={Link} color="inherit">
                     Chats
                   </Button>  
+                  <Button to="/cats" component={Link} color="inherit">
+                    Cats
+                  </Button>  
                 </Toolbar>
               </AppBar>
               <Switch>
+                <Route component={Cats} path="/cats" />
                 <Route component={Chats} path="/chats" />
                 <Route component={Profile_route} path="/profile" />
                 <Route component={Home} path="/" />

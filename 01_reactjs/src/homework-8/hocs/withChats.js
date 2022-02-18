@@ -1,5 +1,4 @@
-import { useCallback } from "react";
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getChatList } from "../store/chats/selectors";
 import { createChat } from '../helpers'

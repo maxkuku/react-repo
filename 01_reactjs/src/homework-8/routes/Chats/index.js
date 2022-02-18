@@ -4,7 +4,8 @@ import { Button } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import { ChatList } from '../../components/ChatList';
 import { Messages } from '../Messages';
-import {withChats} from "../../hocs/withChats"
+import { withChats } from "../../hocs/withChats"
+// import { rootReducer } from '../../store'
 
 
 
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
 
 
 export const ChatsRender = ({
-  chats,
+  chats = withChats(),
   onCreateChat,
   onDeleteChat
 }) => {
