@@ -3,7 +3,10 @@ import { nanoid } from "nanoid"
 
 
 
+
 export const compareById = (targetId) => (item) => item.id === targetId;
+
+
 
 
 export const createMessage = (author, text) => ({
@@ -13,9 +16,5 @@ export const createMessage = (author, text) => ({
 })
 
 
-export const createChat = (namee) => ({
-    namee,
-    id: nanoid(),
-})
 
 

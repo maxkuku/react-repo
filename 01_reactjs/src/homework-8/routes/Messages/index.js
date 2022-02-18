@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import{ MessageInput } from "../../components/MessageInput";
 import{ MessageList } from "../../components/MessageList";
+
 import { withChatMessages } from "../../hocs/withChatMessages";
 
 
