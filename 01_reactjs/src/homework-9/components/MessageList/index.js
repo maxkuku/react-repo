@@ -1,7 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { List } from '@material-ui/core';
-
+import List from '@material-ui/core/List';
 import { Message } from '../Message'
 
 
@@ -9,10 +8,9 @@ export const MessageList = (props) => {
     
     return (
         <List>
-            {props.messageList.map((item) => {
-                <Message key={item.id} {...item} />
-                // Ошибка Line 13:17:  Expected an assignment or function call and instead saw an expression  no-unused-expressions
-            })}
+            {props.messageList.map((item) => 
+                <Message key={item.id}  {...item}  />
+            )}
         </List>
     )
 
@@ -21,7 +19,7 @@ export const MessageList = (props) => {
 MessageList.propTypes = {
     messageList: propTypes.arrayOf(
         propTypes.shape({
-            id: propTypes.number,
+            id: propTypes.string,
             text: propTypes.string,
             author: propTypes.string
         })

@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import { Homework } from './homework-8';
+import { Homework } from './homework-9';
 
 function App() {
   return (
@@ -10,12 +10,6 @@ function App() {
       <div className="forheader"/>
 
       <div className='interval'/>
-
-      <header className="App-header">
-        <h1>
-          Сообщения пользователей
-        </h1>
-      </header>
 
         <Homework/>
 
