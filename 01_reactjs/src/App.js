@@ -1,21 +1,39 @@
 import React from 'react'
-import './App.css';
-import { Homework } from './homework-9';
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
+import {routerConfig} from "./homework-10/pages/routerConfig"
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <div className="container">
-
-      <div className="forheader"/>
-
-      <div className='interval'/>
-
-        <Homework/>
-
-      </div>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <div className="App">
+                <header>
+                    <nav>
+                        <ul>
+                            {
+                                routerConfig.map((route, index) => (<li key={route.path}>
+                                    <Link to={route.path}>
+                                        {route.name}
+                                    </Link>
+                                </li>))
+                            }
+                        </ul>
+                    </nav>
+                </header>
+                <main>
+                    <Switch>
+                        {
+                            routerConfig.map((route, index) => (
+                                <Route {...route} key={route.path} />
+                            ))
+                        }
+                    </Switch>
+                </main>
+            </div>
+        </BrowserRouter>
+    )
 }
+
 
 export default App;

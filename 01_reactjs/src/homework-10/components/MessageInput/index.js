@@ -1,8 +1,9 @@
-
+import React from 'react'
 import { InputBase, Paper, IconButton } from '@material-ui/core';
 import propTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
-import React, {useState, useRef, useEffect} from 'react';
+import {useState, useRef, useEffect} from 'react';
+import { Send } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -58,7 +59,9 @@ export const MessageInput = (props) => {
             value={value}
             type="text"
         />
-        <IconButton type="submit">Отправить</IconButton>
+        <IconButton type="submit">
+            <Send/>
+        </IconButton>
         </Paper>
     );
 };

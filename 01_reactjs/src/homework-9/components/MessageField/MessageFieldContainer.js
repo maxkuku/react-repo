@@ -13,8 +13,8 @@ export default function MessageFieldContainer() {
       (message) => {
         dispatch(
           addMessageWithFirebase(chatId, {
-            ...message,
-            id: `${chatId}-${messages?.length || 0}-${Date.now()}`,
+            ...message
+            
           })
         );
   

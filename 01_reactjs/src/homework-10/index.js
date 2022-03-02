@@ -5,13 +5,11 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Home } from "./routes/Home";
 import { Chats } from "./routes/Chats";
-import { Cats } from "./routes/Cats";
 import { Profile_route } from "./routes/Profile";
-import { store, persistor } from "./routes/Cats";
 import { LogRouter } from "./components/LogRouter";
 import { LogRoute } from "./components/LogRoute";
-import { Login } from "./pages/Login"
 import { Navbar } from 'react-bootstrap';
+import { store, persistor } from "./store"
 
 
 
@@ -21,7 +19,7 @@ export const Homework = () => {
 
     return (
         <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
+            {/* <PersistGate loading={null} persistor={persistor}> */}
             <BrowserRouter>
 
             <Navbar>
@@ -39,23 +37,20 @@ export const Homework = () => {
                   <Button to="/chats" component={Link} color="inherit">
                     Chats
                   </Button>  
-                  <Button to="/cats" component={Link} color="inherit">
-                    Cats
-                  </Button>  
+                   
 
                   
 
                 </Toolbar>
               </AppBar>
               <Switch>
-                <Route component={Login} path="/login" />
-                <Route component={Cats} path="/cats" />
+
                 <Route component={Chats} path="/chats" />
                 <Route component={Profile_route} path="/profile" />
                 <Route component={Home} path="/" />
               </Switch>
             </BrowserRouter>
-            </PersistGate>
+            {/* </PersistGate> */}
         </Provider>
     );
 };

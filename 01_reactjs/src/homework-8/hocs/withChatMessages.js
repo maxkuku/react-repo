@@ -1,11 +1,12 @@
 import React from 'react'
-import {USER_AUTHOR} from "../constatnts/authors"
-import {useParams} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux'
+import {addMessageWithThunk} from "../store/messages/actions"
+import {getChatMessageListById} from "../store/messages/selectors"
 import {hasChatById} from "../store/chats/selectors"
-import {getChatMessageById} from "../store/messages/selectors"
-import {sendMessageWithThunk} from "../store/messages/actions"
-//import {USER_AUTHOR} from "../constatnts/authors"
+import {useParams} from "react-router-dom"
+import {createMessage} from '../helpers'
+import {getUserId} from "../store/users/selector"
+
 
 
 

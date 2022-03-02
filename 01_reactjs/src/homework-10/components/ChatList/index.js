@@ -1,7 +1,9 @@
 import React from 'react'
 import { List, ListItem, Link, ListItemText } from '@mui/material'
 import propTypes from 'prop-types'
-
+// import { Chat } from '../Chat'
+// import { CHATS } from '../../mocks/chats'
+// export const list = CHATS
 
 export const Chat = ({ name, id }) => {
     return (

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-
+//import { getUsersWithThunk } from "../../store/cats/action";
+//import { getError, getLoading, getUsers } from "../../store/cats/selector";
 import { ListGroup, Card, Button, ButtonToolbar, ButtonGroup } from "react-bootstrap";
 import { Loader } from '../../components/Loader'
 import { Error } from '../../components/Error'
@@ -64,14 +65,10 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-
 export const store = createStore(
     persistedReducer, // persistReducer
     composeEnhancers(applyMiddleware(thunk))
 );
-
-
 export const persistor = persistStore(store)
 ///////////////////////////
 

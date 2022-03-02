@@ -11,7 +11,6 @@ export const Message = (props) => {
         props.style === 'em' ? styles.em: '',
         props.align === 'right' ? styles.right: '',
     ].join(' ')}>{props.text}
-        {/** {props.children ? props.children : "undef"} */}
     </p>
     )
 }
