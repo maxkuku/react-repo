@@ -6,6 +6,9 @@ import { ChatList } from '../../components/ChatList';
 import { Messages } from '../Messages';
 import { withChats } from "../../hocs/withChats"
 
+// import { rootReducer } from '../../store'
+
+
 
 
 const useStyles = makeStyles({
@@ -17,7 +20,7 @@ const useStyles = makeStyles({
 
 
 export const ChatsRender = ({
-  chats,
+  chats = withChats(),
   onCreateChat,
   onDeleteChat
 }) => {

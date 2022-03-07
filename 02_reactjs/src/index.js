@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 // import { BrowserRouter } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './styles.css';
+import './index.css';
 import App from './App';
-import { store } from "./lesson-7/store";
+import { store } from "./lesson-8/store";
 import { Provider } from 'react-redux';
 
 const rootElement = document.getElementById('root');
