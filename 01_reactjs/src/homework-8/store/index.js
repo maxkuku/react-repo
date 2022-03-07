@@ -8,7 +8,11 @@ import { profileReducer } from "./profile/reducer"
 import { messagesReducer } from "./messages/reducer"
 import { chatsReducer } from "./chats/reducer"
 
+
 import { catsReducer } from "../routes/Cats"
+
+
+//import { animalsReducer } from "./animals"
 
 
 
@@ -21,6 +25,10 @@ const persistConfig = {
 
 
 const rootReducer = combineReducers({
+
+
+    //animals: animalsReducer,
+
 
     profile: profileReducer,
     messages: messagesReducer,

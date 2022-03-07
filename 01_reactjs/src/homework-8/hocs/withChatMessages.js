@@ -10,6 +10,11 @@ import {sendMessageWithThunk} from "../store/messages/actions"
 
 
 
+import {USER_AUTHORS} from "../constatnts/authors"
+import {sendMessageWithThunk} from '../store/messages/actions'
+
+
+
 
 
 export const withChatMessages = (Component) => {
