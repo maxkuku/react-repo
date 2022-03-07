@@ -4,8 +4,6 @@ import { ListItem, ListItemText } from '@material-ui/core';
 
 export const Message = (props) => {
 
-  
-
     return (
       <ListItem>
         <ListItemText>
@@ -16,7 +14,7 @@ export const Message = (props) => {
 };
 
 Message.propTypes = {
-    id: propTypes.number,
+    
     text: propTypes.string,
     author: propTypes.string
 }

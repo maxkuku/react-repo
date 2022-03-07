@@ -14,11 +14,6 @@ const useStyles = makeStyles((theme) => ({
     },
     input: {
         flexGrow: 1
-    },
-    send: {
-        padding: "5px",
-        backgroundColor: "none!important",
-        borderColor: "none!important",
     }
 }));
 
@@ -64,7 +59,7 @@ export const MessageInput = (props) => {
             value={value}
             type="text"
         />
-        <IconButton type="submit" className={classes.send}>
+        <IconButton type="submit">
             <Send/>
         </IconButton>
         </Paper>
