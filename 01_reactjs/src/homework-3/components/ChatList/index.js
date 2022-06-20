@@ -5,13 +5,14 @@ import propTypes from 'prop-types'
 import { Chat } from '../Chat'
 
 
-export const ChatList = ({ list }) => {
+export const ChatList = ( list ) => {
+    // console.log(list)
     return (
         <List>
-            {list.map((item) => {
-                
+            {list.lists.map((item) => {
+                return (
                 <Chat key={item.id} {...item} />
-                
+                )
             })}
         </List>
     )

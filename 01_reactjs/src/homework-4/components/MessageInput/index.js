@@ -3,7 +3,7 @@ import { InputBase, Paper, IconButton } from '@material-ui/core';
 import propTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
 import {useState, useRef, useEffect} from 'react';
-import { Send } from '@material-ui/icons'
+import { Send } from '@mui/icons-material'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -77,5 +77,5 @@ MessageInput.propTypes = {
 };
 
 MessageInput.defaultProps = {
-    placeholder: "type message"
+    placeholder: "Пишите сюда"
 }

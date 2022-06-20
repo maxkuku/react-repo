@@ -5,8 +5,8 @@ import propTypes from "prop-types";
 
 export const Chat = ({ name }) => {
     return (
-        <ListItem>
-          <ListItemText>{name}</ListItemText>
+        <ListItem >
+          <ListItemText key={name.id}>{name}</ListItemText>
         </ListItem>
     );
 };

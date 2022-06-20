@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+p.message.bot {
+  text-align: right;
+}
+
+p.message.bot:before {
+  content: "Бот: ";
+  display: inline-block;
+  font-style: italic;
+}

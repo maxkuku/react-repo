@@ -42,7 +42,7 @@ export const Homework = () => {
             return;
         }
 
-        sendMessage('bot', 'hello');
+        sendMessage('bot', ' Понял :)');
     }, [messageList]);
 
 
@@ -51,24 +51,26 @@ export const Homework = () => {
     return (
         <div className={classes.wrapper}>
             <ChatList
-            list={[
+            lists={
+                [
                 {
-                    name: "name",
-                    id: 1
+                    name: "First chat",
+                    id: 1,
                 },
                 {
-                    name: "name",
-                    id: 2
+                    name: "Second chat",
+                    id: 2,
                 },
                 {
-                    name: "name",
-                    id: 3
+                    name: "Third chat",
+                    id: 3,
                 },
                 {
-                    name: "name",
-                    id: 4
+                    name: "Fourth chat",
+                    id: 4,
                 },
-            ]}
+            ]
+        }
             />
             <div>
                 <MessageList messageList={messageList} />

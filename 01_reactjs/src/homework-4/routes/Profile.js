@@ -1,10 +1,8 @@
 import React from 'react'
-// eslint-disable-next-line
-import ReactDOM from 'react-dom'
 
 export const Profile = () => {
     return (
-        <div>
+        <div className='container mt-2'>
           <h1>Profile</h1>
         </div>
     );
